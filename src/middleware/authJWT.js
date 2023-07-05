@@ -10,6 +10,7 @@ const verfiyToken = (req,res,next) => {
                 const user = allUserData.users.filter((item)=> item.id == decode.id)
                 if(user.length){
                     req.user = user[0];
+                    req.id = decode.id
                     next()
                 }else{
                     res.status(500).send('user not found')

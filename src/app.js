@@ -17,6 +17,7 @@ router.use(bodyParser.json())
 router.post('/signup',signUp)
 router.post('/login',login)
 router.use('/news',newsRoutes)
+// router.use('/prefernce',prefRoute)
 
 app.listen(PORT, (err) => {
   if (!err) console.log('Server started at port ' + PORT);
