@@ -1,0 +1,17 @@
+{
+  "users": [
+    {
+      "name": "test",
+      "email": "test@gmail.com",
+      "password": "$2b$08$3OwY8Q40ytNZgsYWuVsMTec.JhPUBG/coDJcHkQmP9yn2YkRusXmW",
+      "prefernce": ["sports", "politics"]
+    },
+    {
+      "id": "c6734bf7-d1a4-4df3-b789-0f2fb0121ddc",
+      "name": "test12",
+      "email": "test12@gmail.com",
+      "password": "$2b$08$ZNXGDBK.ImpmGq151UJcVudR8YUHD2z86jD8rIykba2TPL7kxbkZa",
+      "prefernce": ["sports", "politics"]
+    }
+  ]
+}
