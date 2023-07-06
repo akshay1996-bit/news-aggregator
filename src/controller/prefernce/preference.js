@@ -32,17 +32,20 @@ router.put("/", verfiyToken, (req, res) => {
   } else {
     const userId = req.id;
     const newPref = req.body.prefernces;
-    console.log(req)
-    const index = allUserData.users.findIndex((item) => item.id == userId);
-    const user = allUserData.users.filter((item) => item.id == userId);
-    const modifiedPref = allUserData;
-    modifiedPref.users.splice(index, 1, { ...user[0], prefernce: newPref });
-    console.log(modifiedPref)
-    fs.writeFileSync(pathName, JSON.stringify({ ...modifiedPref }), {
-      encoding: "utf-8",
-      flag: "w",
-    });
-    res.status(200).send("Preference updated successfully");
+    if (Array.isArray(newPref)) {
+      const index = allUserData.users.findIndex((item) => item.id == userId);
+      const user = allUserData.users.filter((item) => item.id == userId);
+      const modifiedPref = allUserData;
+      modifiedPref.users.splice(index, 1, { ...user[0], prefernce: newPref });
+      console.log(modifiedPref);
+      fs.writeFileSync(pathName, JSON.stringify({ ...modifiedPref }), {
+        encoding: "utf-8",
+        flag: "w",
+      });
+      res.status(200).send("Preference updated successfully");
+    } else {
+      res.status(403).send("Preferences should be an array of strings");
+    }
   }
 });
 

@@ -4,19 +4,23 @@ const fs = require("fs");
 const path = require("path");
 const allUserData = require("../../../userData.json");
 const { v4: uuidv4 } = require("uuid");
+const validator = require('../../helper/validator')
+
 const signUp = (req, res) => {
   const userData = req.body;
   const modifiedUser = allUserData;
   const pathName = path.join(__dirname, "../../..", "userData.json");
-  //if (validator.validUser.status) {
-  userData.password = bcrypt.hashSync(userData.password, 8);
-  modifiedUser.users.push({ id: uuidv4(), ...userData });
-  fs.writeFileSync(pathName, JSON.stringify(modifiedUser), {
-    encoding: "utf-8",
-    flag: "w",
-  });
-  res.status(201).send("User added successfully");
-  //}
+  if (validator.validUser(userData, allUserData).status) {
+    userData.password = bcrypt.hashSync(userData.password, 8);
+    modifiedUser.users.push({ id: uuidv4(), ...userData });
+    fs.writeFileSync(pathName, JSON.stringify(modifiedUser), {
+      encoding: "utf-8",
+      flag: "w",
+    });
+    res.status(201).send("User added successfully");
+  }else{
+    res.status(403).send(validator.validUser(userData, allUserData).message)
+  }
 };
 
 const login = (req, res) => {

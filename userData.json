@@ -26,6 +26,13 @@
       "email": "newuser@gmail.com",
       "password": "$2b$08$k9H8JmlqqmRLvhPi/FPQTueSuyxMG.KVSnePTF9w3XAxh2//RIije",
       "prefernce": ["music", "tech", "politics"]
+    },
+    {
+      "id": "fc3a61dd-9202-42ee-a979-32fb85811fdc",
+      "name": "newuser",
+      "email": "newuser1@gmail.com",
+      "password": "$2b$08$iAIKWRAZQxpretsNc2OaEuIULs59HRI7uTpMjkZlhTE3Og6CinRNy",
+      "prefernce": ["sport", "politics"]
     }
   ]
 }

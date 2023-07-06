@@ -15,7 +15,7 @@ app.use(router);
 
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(bodyParser.json())
-router.post('/signup',signUp)
+router.post('/register',signUp)
 router.post('/login',login)
 router.use('/news',newsRoutes)
 router.use('/prefernces',prefRoute)
