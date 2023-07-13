@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "scripts": {
     "start": "nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --recursive 'src/test/**/*.js' --exit"
   },
   "author": "",
   "license": "ISC",
@@ -13,11 +13,16 @@
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
+    "chai": "^4.3.7",
+    "chai-http": "^4.4.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
+    "mocha": "^10.2.0",
+    "mocha-junit-reporter": "^2.2.1",
     "moment": "^2.29.4",
+    "sinon": "^15.2.0",
     "uuid": "^9.0.0"
   }
 }
