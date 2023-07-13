@@ -1,13 +1,45 @@
-# news-aggregator-backend
+# News-aggregator-api
 
-This repo contains backend code for API of news aggregator
+# News API Integration
 
-User needs to register with name,a unique email, password and preferences using POST /register API.
+In this project, user can fetch latest news stories based on his preferences.
 
-After signup, user needs to login with the provided email and password (POST /login)
+## Prerequisites
 
-After login a JWT token is returned to the user, user needs to pass this token in authorization header in the format 'JWT token', for further APIs.
+Before running the project, make sure you have the following prerequisites:
 
-User can use API GET /news, which returns the news according to the preferences provided by the user.
+- Node.js installed on your machine
 
-User can further fetch and update the preferences by using the GET /preferences and /PUT preferences API.
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/akshay1996-bit/news-aggregator.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd news-aggregator
+   ```
+
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+## API Routes
+The project also includes the following API routes for users:
+
+### User Routes
+
+- `POST /register`: Register a new user.
+- `POST /login`: Log in an existing user.
+- `GET /prefernces`: Get the news preferences for the currently logged-in user.
+- `PUT /prefernces`: Update the news preferences for the currently logged-in user.
+
+### News Routes
+
+- `GET /news`: Fetch all available news sources.
