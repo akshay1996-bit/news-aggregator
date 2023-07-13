@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "name": "test",
+      "email": "test@gmail.com",
+      "password": "$2b$08$3OwY8Q40ytNZgsYWuVsMTec.JhPUBG/coDJcHkQmP9yn2YkRusXmW",
+      "prefernce": ["sports", "politics"]
+    },
+    {
+      "id": "47d26941-1da7-445b-ae1a-a6486c8b6b89",
+      "newsCacheDate": "2023-07-13T16:23:27.641Z",
+      "name": "newuser",
+      "email": "newuser1@gmail.com",
+      "password": "$2b$08$fxYmQjU2tr534ray/O/eFuMN5okBS2eMtzUkxbsWB0SvS7bgYd15u",
+      "prefernce": ["sport", "politics"]
+    },
+    {
+      "id": "f67a163e-46f8-4bbb-9701-6b9039e4a885",
+      "newsCacheDate": "2023-07-13T16:25:17.110Z",
+      "name": "test-user",
+      "email": "test-user@gmail.com",
+      "password": "$2b$08$PNols2jYdt.daQzEBQ2T5epp6A5KNblKPimWrr7ODTY9w9jbK08MW",
+      "prefernce": ["music", "weather"]
+    }
+  ]
+}

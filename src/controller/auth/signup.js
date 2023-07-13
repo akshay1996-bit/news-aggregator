@@ -2,17 +2,18 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const fs = require("fs");
 const path = require("path");
-const allUserData = require("../../../userData.json");
+const allUserData = require("../../db/userData.json");
 const { v4: uuidv4 } = require("uuid");
 const validator = require('../../helper/validator')
 
 const signUp = (req, res) => {
   const userData = req.body;
   const modifiedUser = allUserData;
-  const pathName = path.join(__dirname, "../../..", "userData.json");
+  const pathName = path.join(__dirname, "../../db", "userData.json");
   if (validator.validUser(userData, allUserData).status) {
     userData.password = bcrypt.hashSync(userData.password, 8);
-    modifiedUser.users.push({ id: uuidv4(), ...userData });
+    const newUser = { id: uuidv4(), newsCacheDate: null, ...userData }
+    modifiedUser.users.push(newUser);
     fs.writeFileSync(pathName, JSON.stringify(modifiedUser), {
       encoding: "utf-8",
       flag: "w",

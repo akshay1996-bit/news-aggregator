@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const bodyParser = require("body-parser");
 const verfiyToken = require("../../middleware/authJWT");
-const allUserData = require("../../../userData.json");
+const allUserData = require("../../db/userData.json")
 const fs = require("fs");
 const path = require("path");
 router.use(bodyParser.urlencoded({ extended: false }));
@@ -22,7 +22,7 @@ router.get("/", verfiyToken, async (req, res) => {
 });
 
 router.put("/", verfiyToken, (req, res) => {
-  let pathName = path.join(__dirname, "../../../", "userData.json");
+  let pathName = path.join(__dirname, "../../db", "userData.json");
   if (!req.user && req.message == null) {
     res.send(403).send("Invalid JWT token");
   } else if (!req.user && req.message) {
@@ -37,7 +37,6 @@ router.put("/", verfiyToken, (req, res) => {
       const user = allUserData.users.filter((item) => item.id == userId);
       const modifiedPref = allUserData;
       modifiedPref.users.splice(index, 1, { ...user[0], prefernce: newPref });
-      console.log(modifiedPref);
       fs.writeFileSync(pathName, JSON.stringify({ ...modifiedPref }), {
         encoding: "utf-8",
         flag: "w",
