@@ -9,7 +9,7 @@ router.use(bodyParser.json());
 
 router.get("/", verfiyToken, async (req, res) => {
   if (!req.user && req.message == null) {
-    res.send(403).send("Invalid JWT token");
+    res.status(403).send({message:"Invalid JWT token"});
   } else if (!req.user && req.message) {
     res.status(403).send({
       message: req.message,
@@ -24,7 +24,7 @@ router.get("/", verfiyToken, async (req, res) => {
 router.put("/", verfiyToken, (req, res) => {
   let pathName = path.join(__dirname, "../../db", "userData.json");
   if (!req.user && req.message == null) {
-    res.send(403).send("Invalid JWT token");
+    res.status(403).send("Invalid JWT token");
   } else if (!req.user && req.message) {
     res.status(403).send({
       message: req.message,
